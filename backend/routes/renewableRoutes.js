@@ -1,0 +1,1 @@
+const express=require('express');const r=express.Router();const {protect}=require('../middleware/authMiddleware');r.get('/',protect,(req,res)=>res.json({success:true,data:[]}));r.post('/',protect,(req,res)=>res.json({success:true}));module.exports=r;

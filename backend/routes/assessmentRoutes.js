@@ -1,0 +1,12 @@
+const express = require('express');
+const router = express.Router();
+const createCrud = require('../utils/crudFactory');
+const Model = require('../models/Assessment');
+const { protect } = require('../middleware/authMiddleware');
+const crud = createCrud(Model);
+router.get('/', protect, crud.list);
+router.get('/:id', protect, crud.get);
+router.post('/', protect, crud.create);
+router.put('/:id', protect, crud.update);
+router.delete('/:id', protect, crud.remove);
+module.exports = router;

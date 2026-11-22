@@ -1,0 +1,103 @@
+/* Footer */
+.footer {
+  background: var(--color-navy);
+  color: var(--color-white);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--space-8);
+  padding: var(--space-10) 0;
+}
+.footer-brand img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--space-2);
+}
+.footer-brand-name {
+  display: block;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.4px;
+}
+.footer-brand-text {
+  color: #CBD5E1;
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-2);
+  line-height: var(--line-height-relaxed);
+}
+.footer-demo {
+  margin-top: var(--space-2);
+}
+.footer-col h4 {
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-3);
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.footer-links a {
+  color: #CBD5E1;
+  font-size: var(--font-size-sm);
+}
+.footer-links a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 2px;
+}
+.footer-social {
+  display: flex;
+  gap: var(--space-2);
+}
+.footer-social a {
+  color: #CBD5E1;
+  font-size: var(--font-size-sm);
+}
+.footer-social a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 2px;
+}
+.footer-bottom {
+  background: var(--color-navy-dark);
+  padding: var(--space-4) 0;
+}
+.footer-bottom .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-bottom a {
+  color: #CBD5E1;
+  font-size: var(--font-size-sm);
+}
+.footer-bottom a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+.footer-bottom span {
+  color: #CBD5E1;
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 767px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .footer-bottom .container {
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+}
