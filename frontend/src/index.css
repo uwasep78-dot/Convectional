@@ -2,3 +2,15 @@
 @import './styles/variables.css';
 @import './styles/reset.css';
 @import './styles/app.css';
+.hero-bottom a {
+  color: inherit;
+  text-decoration: none;
+}
+.hero-bottom a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+.hero-bottom a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
