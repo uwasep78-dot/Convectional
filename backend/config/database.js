@@ -1,19 +1,17 @@
 const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
-
-let mongod = null;
 
 const connectDB = async () => {
   try {
-    let uri = process.env.MONGODB_URI;
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error('MONGODB_URI must be configured.');
+    }
 
-    if (!uri || uri.includes('127.0.0.1:27017')) {
-      mongod = await MongoMemoryServer.create({
-        instance: {
-          port: 27017,
-        },
-      });
-      uri = mongod.getUri();
+    if (
+      process.env.NODE_ENV === 'production' &&
+      /\/\/(localhost|127\.0\.0\.1)(:\d+)?(?:\/|$)/.test(uri)
+    ) {
+      throw new Error('MONGODB_URI must point to a remote MongoDB instance in production.');
     }
 
     const conn = await mongoose.connect(uri, {
