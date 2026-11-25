@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const createCrud = require('../utils/crudFactory');
-const Model = require('../models/Category');
+const Model = require('../models/category');
 const { protect } = require('../middleware/authMiddleware');
 const crud = createCrud(Model);
 router.get('/', protect, crud.list);

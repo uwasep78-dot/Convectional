@@ -1,4 +1,4 @@
-const Category = require('../models/Category');
+const Category = require('../models/category');
 const { successResponse, errorResponse, paginate, buildPaginationMeta } = require('../utils/response');
 
 const getAllCategories = async (req, res, next) => {
