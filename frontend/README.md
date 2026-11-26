@@ -12,7 +12,7 @@ A responsive React + Vite frontend for CONVENTIONAL COMPLEX & DUTIES AND RENEWAB
 
 ## Deploy to Render
 
-Use the repository's `render.yaml` blueprint to create the static site. It installs the locked frontend dependencies, including Vite's development dependencies, builds the app, and publishes `dist`. For an existing Render service not managed by this blueprint, set its root directory to `frontend` and build command to `npm ci --include=dev && npm run build`.
+Use the repository's `render.yaml` blueprint to create the static site. The build script installs the locked frontend dependencies, including Vite's development dependencies, before building and publishing `dist`. This also supports existing Render services configured with the `frontend` root directory and `npm run build` build command.
 
 ## Included pages
 
