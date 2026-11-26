@@ -5,20 +5,20 @@
   "type": "module",
   "scripts": {
 "dev": "npx vite",
-"build": "npm ci --include=dev && vite build",
+"build": "vite build",
+"postinstall": "vite build",
+"start": "node server.js",
 "preview": "npx vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
     "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-icons": "^5.3.0",
     "react-router-dom": "^7.18.5",
-    "recharts": "^2.12.7"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
+    "recharts": "^2.12.7",
     "vite": "^6.4.5"
   }
 }
