@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Enrollment = require('../models/Enrollment');
 const Student = require('../models/Student');
 const User = require('../models/User');
@@ -78,12 +79,20 @@ const createEnrollment = async (req, res, next) => {
       return errorResponse(res, 'Student information required', 400);
     }
 
-    const courseDoc = await Training.findById(courseIdResolved);
+    let courseDoc = null;
+    if (courseIdResolved) {
+      if (mongoose.Types.ObjectId.isValid(courseIdResolved)) {
+        courseDoc = await Training.findById(courseIdResolved);
+      } else {
+        courseDoc = await Training.findOne({ name: new RegExp('^' + courseIdResolved.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$', 'i') });
+      }
+    }
     if (!courseDoc && courseIdResolved) {
-      // try to find by name
+      courseDoc = await Training.create({ name: courseIdResolved, fee: 0 });
     }
     if (!courseDoc) {
-      return errorResponse(res, 'Course/Training not found', 404);
+      // create a generic training entry from the submitted course name
+      courseDoc = await Training.create({ name: req.body.course || 'General Training', fee: 0 });
     }
 
     const existing = await Enrollment.findOne({ student: student._id, course: courseDoc._id });
